@@ -1,5 +1,7 @@
 require_relative 'transaction'
+require_relative 'print'
 require 'date'
+
 class Account
 
 attr_reader :balance, :transaction
@@ -7,6 +9,7 @@ attr_reader :balance, :transaction
   def initialize
     @balance = 0
     @transaction = Transaction.new
+    @print = Print.new
   end
 
   def add_deposit(amount)
@@ -22,11 +25,11 @@ attr_reader :balance, :transaction
   end
 
   def print_transactions
-    @transaction.print_all
+    @print.print_all(transaction.transactions)
   end
 
   def print_deposits
-    @transaction.print_deposits
+    @print.print_deposits(transaction.transactions)
   end
 
 end
