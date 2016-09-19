@@ -11,24 +11,21 @@ describe Account do
 
   end
 
-  context 'a user deposits £50' do
-    it 'should add 50 to the account balance' do
+  describe 'add_deposit' do
+    it 'adds 50 to the amount' do
       account = Account.new
-      account.add_deposit(50)
-      expect(account.balance).to eq 50
+      add_deposit.add(50)
+      expect(balance).to eq 50
     end
   end
 
-  context 'a user withdraws £50' do
+  describe 'make_withdrawal' do
     it 'should minus 50 from the account balance' do
       account = Account.new
-      account.add_deposit(50)
+      add_deposit.add(50)
       account.make_withdrawal(50)
       expect(account.balance).to eq 0
     end
   end
-
-
-
 
 end

@@ -1,7 +1,5 @@
-require_relative 'deposit'
-require_relative 'withdrawal'
 require_relative 'transaction'
-
+require 'date'
 class Account
 
 attr_reader :balance, :transaction
@@ -12,17 +10,15 @@ attr_reader :balance, :transaction
   end
 
   def add_deposit(amount)
-    deposit = Deposit.new
-    deposit.add(amount)
-    @balance += deposit.amount
-    @transaction.add(deposit.date, deposit.amount, balance)
+    date = DateTime.now.strftime "%d/%m/%Y"
+    @balance += amount
+    @transaction.add(date, amount, balance)
   end
 
   def make_withdrawal(amount)
-    withdrawal = Withdrawal.new
-    withdrawal.minus(amount)
-    @balance += withdrawal.amount
-    @transaction.add(withdrawal.date, withdrawal.amount, balance)
+    date = DateTime.now.strftime "%d/%m/%Y"
+    @balance -= amount
+    @transaction.add(date, amount, balance)
   end
 
   def print_transactions
