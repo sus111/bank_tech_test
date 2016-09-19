@@ -15,21 +15,25 @@ attr_reader :balance, :transaction
   def add_deposit(amount)
     date = DateTime.now.strftime "%d/%m/%Y"
     @balance += amount
-    @transaction.add(date, amount, balance)
+    @transaction.deposit(date, amount, balance)
   end
 
   def make_withdrawal(amount)
     date = DateTime.now.strftime "%d/%m/%Y"
     @balance -= amount
-    @transaction.add(date, amount, balance)
+    @transaction.withdrawal(date, amount, balance)
   end
 
-  def print_transactions
-    @print.print_all(transaction.transactions)
+  def print_all
+    @print.print_out(transaction.transactions)
   end
 
   def print_deposits
-    @print.print_deposits(transaction.transactions)
+    @print.print_out(transaction.deposits)
+  end
+
+  def print_withdrawals
+    @print.print_out(transaction.withdrawals)
   end
 
 end
