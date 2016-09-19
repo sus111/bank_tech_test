@@ -36,4 +36,5 @@ attr_reader :balance, :transaction
     @print.print_out(transaction.withdrawals)
   end
 
+
 end

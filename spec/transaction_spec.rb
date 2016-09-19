@@ -8,12 +8,6 @@ describe Transaction do
   end
 
   describe 'deposit' do
-    it 'should add a deposit to transaciton with date, credit and balance' do
-      transaction = Transaction.new
-      transaction.deposit(@time_now, 50, 50)
-      expect(transaction.transactions).to eq [{date: @time_now, credit: 50.0,
-        debit:"", balance: 50.0}]
-    end
 
     it 'should add a deposit to deposits with date, credit and balance' do
       transaction = Transaction.new
@@ -24,13 +18,6 @@ describe Transaction do
   end
 
   describe 'withdrawal' do
-
-    it 'should add a withdrawal to transaciton with date, withdrawal and balance' do
-      transaction = Transaction.new
-      transaction.withdrawal(@time_now, -50, 0)
-      expect(transaction.transactions).to eq [{date: @time_now, credit: "",
-        debit:50.0, balance: 0.0}]
-    end
 
     it 'should add a withdrawal to withdrawals with date, withdrawal and balance' do
       transaction = Transaction.new

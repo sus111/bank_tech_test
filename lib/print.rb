@@ -9,5 +9,5 @@ class Print
       puts "#{transaction[:balance]}"
     end
   end
-
+  
 end
