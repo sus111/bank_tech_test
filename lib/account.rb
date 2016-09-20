@@ -1,5 +1,6 @@
 require_relative 'transaction'
 require_relative 'print'
+require_relative 'sort'
 require 'date'
 
 class Account
@@ -10,6 +11,7 @@ attr_reader :balance, :transaction
     @balance = 0
     @transaction = Transaction.new
     @print = Print.new
+    @sort = Sort.new
   end
 
   def add_deposit(amount)
@@ -36,5 +38,12 @@ attr_reader :balance, :transaction
     @print.print_out(transaction.withdrawals)
   end
 
+  def print_ascending
+    @print.print_out(@sort.ascending(transaction.transactions))
+  end
+
+  def print_descending
+    @print.print_out(@sort.descending(transaction.transactions))
+  end
 
 end
